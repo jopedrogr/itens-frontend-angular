@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row" *ngIf="show">
+      
+        <fe-item *ngFor="let item of retriviedItens" 
+                 [url]="item.image" 
+                 [name]="item.name">
+        </fe-item> 
+
+        <fe-item
+            [url]="retriviedItem['image']" 
+            [name]="retriviedItem['name']">
+        </fe-item>
+        
+    </div>
+</div>
+
+<div class="container row" style="margin-top: 3%; border: 1px solid #000000; height: auto; padding-top: 20px; padding-bottom: 20px;">
+    <label class="col-md-10">Pesquisa de Item</label><br>
+    <div class="col-md-4" style="margin-right: 3%;">
+        <input type="text" class="form-control" id="name" placeholder="Nome do item" [(ngModel)]="itemName"/>
+    </div>
+    <div class="col-md-2">
+        <input type="button" class="btn btn-success" (click)="getItem()" value="Vizualizar Item">
+    </div>
+    <div class="col-md-2">
+        <input type="button" class="btn btn-danger" (click)="deleteItem()" value="Apagar item">
+    </div>
+</div>
+
+<div class="container row" style="margin-top: 3%; border: 1px solid #000000; height: auto; padding-top: 20px; padding-bottom: 20px;">
+    <label class="col-md-10">Cadastro de Item</label><br>
+    <div class="col-md-4" style="margin-right: 3%;">
+        <input type="text" class="form-control" id="name" placeholder="Nome do item" [(ngModel)]="itemName"/>
+    </div>
+    <div class="col-md-3" style="margin-right: 3%;">
+        <input type="file" (change)="onFileChanged($event)">
+    </div>
+    <div class="col-md-2">
+        <input type="button" class="btn btn-success" (click)="onUpload()" value="Cadastrar Item">
+    </div>
+</div>
+
+<div class="container row" style="margin-top: 3%; border: 1px solid #000000; height: auto; padding-top: 20px; padding-bottom: 20px;">
+    <div class="col-md-3">
+        <input type="button" class="btn btn-success" (click)="getItens()" value="Vizualizar todos itens">
+    </div>
+    <div class="col-md-1">
+        <input type="button" class="btn btn-danger" (click)="clear()" value="Limpar">
+    </div>
+</div>
